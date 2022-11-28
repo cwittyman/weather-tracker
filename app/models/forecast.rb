@@ -86,7 +86,7 @@ class Forecast < ApplicationRecord
             timeOfDate = "n"
         end
 
-        return "/assets/#{imgCode}#{timeOfDate}.svg"
+        return "#{imgCode}#{timeOfDate}.svg"
     end
 
     def localize_time(time_zone_param, time_taken_param)
