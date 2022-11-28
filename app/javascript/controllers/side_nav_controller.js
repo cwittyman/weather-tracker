@@ -8,11 +8,21 @@ export default class extends Controller {
 
   connect() {
     var el = this.element.querySelector('.sidenav');
-    var instances = M.Sidenav.init(el, {});
+    this.instance = M.Sidenav.init(el, {});
     //$('.sidenav').sidenav();    
   }
 
-  disconnect() {
+  checkOpen(){
+    setTimeout(this.checkOpenAfterLoad.bind(null, this), 0);
+  }
 
+  checkOpenAfterLoad(self){
+    if(!self.instance.isOpen){
+      self.instance.open();
+    }
+  }
+
+  disconnect() {
+    this.instance = null;
   }
 }
