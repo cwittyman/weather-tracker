@@ -85,6 +85,7 @@ test:
 #
 production:
   <<: *default
-  database: weather_tracker_production
-  username: weather_tracker
-  password: <%= ENV["WEATHER_TRACKER_DATABASE_PASSWORD"] %>
+  host: ec2-44-205-177-160.compute-1.amazonaws.com
+  database: d94bda94a8ogni
+  username: takthiqjdjufhb
+  password: db572c141721edcede88bfbd58dcca79d503002ea25bccab6ff32767a6760f40
