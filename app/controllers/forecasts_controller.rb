@@ -3,9 +3,9 @@ class ForecastsController < ApplicationController
         if Location.find_by(is_selected: true) == nil
             redirect_to locations_path 
         else
-            if params[:current_id]
+            if params[:format]
                 Location.update_all(:is_selected => false);
-                @location = Location.find(params[:current_id])
+                @location = Location.find(params[:format])
                 @location.is_selected = true;
                 @location.save!
                 @location = Location.find_by(is_selected: true)
