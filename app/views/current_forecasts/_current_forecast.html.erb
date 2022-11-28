@@ -4,7 +4,7 @@
       <h4><%=current_forecast.location.name%></h4>
       <i class="btn-floating btn-large waves-effect waves-light circle"><%=current_forecast.temp.to_f.round%> °F</i>
       <h5><%=current_forecast.status%></h5>
-      <img src="<%=current_forecast.status_img_path%>" />
+      <img src="<%= image_path(current_forecast.status_img_path) %>" />
     </div>
   </div>
 <%end %>

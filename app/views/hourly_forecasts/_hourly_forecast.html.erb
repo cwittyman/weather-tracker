@@ -2,6 +2,6 @@
   <li class="collection-item avatar hour-collection-item">
     <div>
       <i class="circle"><%=hourly_forecast.temp.to_f.round%></i>  <h5><%=hourly_forecast.format_time%> - <%=hourly_forecast.status%>
-      </h5><a href="#!" class="secondary-content"><i><img src="<%=hourly_forecast.status_img_path%>" /></i></a></div>
+      </h5><a href="#!" class="secondary-content"><i><img src="<%= image_path(hourly_forecast.status_img_path) %>" /></i></a></div>
   </li>
 <%end%>

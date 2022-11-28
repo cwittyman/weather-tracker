@@ -86,11 +86,11 @@ class Forecast < ApplicationRecord
             timeOfDate = "n"
         end
 
-        return "/assets/#{imgCode}#{timeOfDate}.svg"
+        return "#{imgCode}#{timeOfDate}.svg"
     end
 
     def localize_time(time_zone_param, time_taken_param)
-        timeForamted = TZInfo::Timezone.get(time_zone_param).utc_to_local(time_taken_param)
-        return timeForamted
+        timeFormated = TZInfo::Timezone.get(time_zone_param).utc_to_local(time_taken_param)
+        return timeFormated
     end
 end
