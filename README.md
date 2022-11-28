@@ -1,5 +1,6 @@
 # README
 Ruby on Rails App for tracking Weather
+
 Visit on Heroku [Here](https://cwitty-weather.herokuapp.com/)
 
 Setup
