@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  host: ec2-44-205-177-160.compute-1.amazonaws.com
-  database: d94bda94a8ogni
-  username: takthiqjdjufhb
-  password: db572c141721edcede88bfbd58dcca79d503002ea25bccab6ff32767a6760f40
+  host: cwitty-weather-db.internal
+  database: cwitty-weather-db
+  username: postgres
+  password: rGrIdW6r6A0Br6A
