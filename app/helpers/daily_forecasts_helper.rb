@@ -1,0 +1,2 @@
+module DailyForecastsHelper
+end

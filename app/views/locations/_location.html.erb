@@ -1,0 +1,12 @@
+
+<%= turbo_frame_tag location do %>
+  <li class="collection-item avatar location-collection-item">
+        <%# TODO: replace _top with foracsts %>
+        <h5><%= link_to location.name, forecasts_path(:current_id => location.id), data: { turbo_frame: '_top' } %></h5>
+
+        <%= button_to "Delete",
+                      location_path(location),
+                      method: :delete,
+                      class: "waves-effect waves-light btn secondary-content" %>
+  </li>
+<% end %>

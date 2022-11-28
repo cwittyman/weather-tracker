@@ -1,0 +1,9 @@
+<%= turbo_frame_tag daily_forecast do %>
+   <li class="collection-item avatar day-collection-item">
+    <div>
+      <i class="circle"><%=daily_forecast.format_time%></i>
+      <h5>Min:<%=daily_forecast.mintemp.to_f.round%> / Max: <%=daily_forecast.maxtemp.to_f.round%> - <%=daily_forecast.status%></h5>
+      <a href="#!" class="secondary-content"><i><img src="<%=daily_forecast.status_img_path%>" /></i></a>
+    </div>
+  </li>
+<%end %>

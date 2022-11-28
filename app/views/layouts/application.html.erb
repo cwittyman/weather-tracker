@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WeatherTracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+
+    <nav class="white" role="navigation" data-controller="side-nav">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="forecasts#index" class="brand-logo"><img src="/assets/logo.png"/></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="forecasts#index">Today</a></li>
+          <li><a href="hourlyforecasts#index">Hourly</a></li>
+          <li><a href="dailyforecasts#index">Daily</a></li>
+          <li><a href="locations#index">Locations</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="forecasts#index">Today</a></li>
+          <li><a href="hourlyforecasts#index">Hourly</a></li>
+          <li><a href="dailyforecasts#index">Daily</a></li>
+          <li><a href="locations#index">Locations</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

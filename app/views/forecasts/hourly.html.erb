@@ -1,0 +1,10 @@
+<%= turbo_stream_from "hourly" %>
+<div class="container">
+  <div class="section">
+
+    <%= turbo_frame_tag "hourly" do %>
+        <%= render partial: "forecasts/forecast",  locals: { forecasts: @forecasts } %>
+    <% end %>
+
+  </div>
+</div>

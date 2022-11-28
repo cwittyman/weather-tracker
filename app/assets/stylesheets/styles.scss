@@ -1,0 +1,76 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ nav ul a,
+ nav .brand-logo {
+   color: #444;
+   img{
+    margin-top: 5px;
+    height: 50px;
+   }
+ }
+ 
+ p {
+   line-height: 2rem;
+ }
+ 
+ .sidenav-trigger {
+   color: #26a69a;
+ }
+  
+.current-forecast{
+  .btn-floating.btn-large{
+    width: 11rem;
+    height: 11rem;
+    line-height: 11rem;
+    font-size: 3rem;
+  }
+}
+
+ .collection {
+    &:has(#locations){
+    border:none;
+    li {
+      border-top: 1px solid #e0e0e0;
+    }
+  }
+  .collection-item {
+    &.hour-collection-item, &.day-collection-item, &.location-collection-item{
+      h5{
+        padding: 5px 0 0 0;
+      }
+      img{
+        height:50px
+      }
+      a{
+        color: #26a69a;
+      }
+    }
+    &:last-child{
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+ }
+ 
+ @media only screen and (max-width : 600px) {
+   #index-banner .section {
+     top: 0;
+   }
+ }
+ 
+ .icon-block {
+   padding: 0 15px;
+ }
+ .icon-block .material-icons {
+   font-size: inherit;
+ }
+ 
+ footer.page-footer {
+   margin: 0;
+ }
+ 

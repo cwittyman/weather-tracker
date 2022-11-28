@@ -1,0 +1,13 @@
+<%= turbo_stream_from "forecasts" %>
+<div class="container">
+  <div class="section current-forecast">
+    <div class="row">
+      <div class="col s12">
+        <%= turbo_frame_tag "forecasts" do %>
+            <%#= render partial: "forecasts/forecast",  locals: { forecasts: @forecasts } %>
+            <%= render @forecasts %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
