@@ -24,7 +24,6 @@ DailyForecast < Forecast
 
 HourlyForecast < Forecast
 
-
 #sources
 
 Weather APIs
