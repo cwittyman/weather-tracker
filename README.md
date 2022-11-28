@@ -15,7 +15,7 @@ rake db:migrate
 ```
 
 
-Model Structure
+# Model Structure
 
 Location
     has_many :forecasts
@@ -29,7 +29,7 @@ DailyForecast < Forecast
 
 HourlyForecast < Forecast
 
-#sources
+# Sources
 
 Weather APIs
 
