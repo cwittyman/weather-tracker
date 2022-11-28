@@ -34,12 +34,15 @@ HourlyForecast < Forecast
 Weather APIs
 
 https://open-meteo.com/en/docs
+
 https://openweathermap.org/weather-conditions
 
 UI
 
 https://materializecss.com/
+
 https://www.highcharts.com/
+
 https://github.com/stimulus-use/stimulus-use
 
 Date fun
@@ -49,4 +52,5 @@ https://stackoverflow.com/questions/1048937/how-do-i-change-the-zone-offset-for-
 Testing
 
 https://betterprogramming.pub/how-to-set-up-rails-with-rspec-capybara-and-database-cleaner-aacb000070ef
+
 https://www.fastruby.io/blog/testing/javascript/mocking-js-requests.html
