@@ -1,13 +1,10 @@
 class Location < ApplicationRecord
-    has_many :forecasts
-    
-    def create_daily_data(only_current = false)
+    validates_presence_of :name, :lat, :lng, :timezone
 
-        todayDate = Date.today
-        toDate = todayDate.advance(days: 7)
-        sixthDay = todayDate.advance(days: 6)
-        
-        existing = forecasts.where('time_taken BETWEEN ? AND ?', sixthDay, toDate)
+    has_many :forecasts, dependent: :destroy
+
+    def create_daily_data(only_current = false)
+        existing = forecasts.where('time_taken BETWEEN ? AND ?', sixth_day, to_date)
         if(!only_current && existing.count > 0)
             return;
         end
@@ -16,33 +13,37 @@ class Location < ApplicationRecord
             forecasts.destroy_all
         end
 
-        url="https://api.open-meteo.com/v1/forecast?"\
-        "latitude=#{lat}"\
-        "&longitude=#{lng}"\
-        "&hourly=temperature_2m,weathercode"\
-        "&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit"\
-        "&precipitation_unit=inch"\
-        "&timezone=#{Rack::Utils.escape(timezone)}"\
-        "&start_date=#{todayDate.strftime('%Y-%m-%d')}"\
-        "&end_date=#{toDate.strftime('%Y-%m-%d')}"
-        
-        response = RestClient.get(url)
-        data = ActiveSupport::JSON.decode(response)
-
         if(!only_current)
-            insert_current_data(timezone, data)
-            insert_hourly_data(timezone, data)
-            insert_daily_data(timezone, data)
+            insert_current_data(timezone, weather_data)
+            insert_hourly_data(timezone, weather_data)
+            insert_daily_data(timezone, weather_data)
         else
             forecasts.where(type:"CurrentForecast").destroy_all
-            insert_current_data(timezone, data)
+            insert_current_data(timezone, weather_data)
         end
     end
 
+    def weather_data
+        @weather_data ||= WeatherData.new(lat, lng, timezone, today_date).response
+    end
+
     private
+
+    def today_date
+        Date.today
+    end
+
+    def to_date
+        # today_date.advance(days: 7)
+        7.days.after(today_date)
+    end
+
+    def sixth_day
+        # to_date - 1.day
+        1.day.before(to_date)
+    end
     
     def insert_current_data(timezone, data)
-        
         Forecast.find_or_create_by(
             time_taken: data['current_weather']['time'],
             temp: data['current_weather']['temperature'],
@@ -68,7 +69,7 @@ class Location < ApplicationRecord
             if combo[2].is_a? Float
                 temp = combo[2]
             else
-                binding.pry
+                #binding.pry
                 temp = combo[2].value.split('.', -1)[0]
             end
 

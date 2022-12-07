@@ -64,6 +64,15 @@
    #index-banner .section {
      top: 0;
    }
+   .collection {
+    .collection-item {
+      &.hour-collection-item, &.day-collection-item {
+        img{
+          display: none;
+        }
+      }
+    }
+   }
  }
  
  .icon-block {

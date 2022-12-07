@@ -41,7 +41,6 @@ class LocationsController < ApplicationController
     end
 
     def destroy
-        @location.forecasts.destroy_all
         @location.destroy
 
         if Location.all.count > 0
