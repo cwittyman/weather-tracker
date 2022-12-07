@@ -73,8 +73,9 @@ class Forecast < ApplicationRecord
         imgCode = CODE_MAP_IMG[code.to_s]
         itemTime = TZInfo::Timezone.get(timezone).utc_to_local(time_taken)
         timeOfDate = "d"
-        logger.info("This is my weather code #{code}")
-        logger.info("This is my img code #{imgCode}")
+        
+        logger.info("This is my time #{time_taken}")
+
         today = Date.today
         tomorrow = today + 1
         
