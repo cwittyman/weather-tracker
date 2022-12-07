@@ -75,7 +75,7 @@ class Forecast < ApplicationRecord
         timeOfDate = "d"
         logger.info("This is my weather code #{code}")
         logger.info("This is my img code #{imgCode}")
-        ogger.info("This is my time #{time_taken}")
+        logger.info("This is my time #{time_taken}")
         today = Date.today
         tomorrow = today + 1
         
