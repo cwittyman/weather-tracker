@@ -73,7 +73,8 @@ class Forecast < ApplicationRecord
         imgCode = CODE_MAP_IMG[code.to_s]
         itemTime = TZInfo::Timezone.get(timezone).utc_to_local(time_taken)
         timeOfDate = "d"
-        
+        logger.info("This is my weather code #{code}")
+        logger.info("This is my img code #{imgCode}")
         today = Date.today
         tomorrow = today + 1
         
@@ -85,8 +86,11 @@ class Forecast < ApplicationRecord
         if dynamic && ((localize_time(timezone, nine_pm)..localize_time(timezone, nine_am)).include? itemTime)
             timeOfDate = "n"
         end
-
-        return "#{imgCode}#{timeOfDate}.svg"
+        if imgCode != nil
+            return "#{imgCode}#{timeOfDate}.svg"
+        else
+            return "01d.svg"
+        end
     end
 
     def localize_time(time_zone_param, time_taken_param)
